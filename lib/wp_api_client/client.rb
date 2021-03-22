@@ -15,6 +15,16 @@ module WpApiClient
       end
     end
 
+    def post(url, params = {})
+      if @concurrent_client
+        @concurrent_client.post(api_path_from(url), params)
+      else
+        response = @connection.post(api_path_from(url), params)
+        @headers = response.headers
+        native_representation_of response.body
+      end
+    end
+
     def concurrently
       @concurrent_client ||= ConcurrentClient.new(@connection)
       yield @concurrent_client

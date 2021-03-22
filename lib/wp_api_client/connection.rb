@@ -3,12 +3,13 @@ require 'faraday_middleware'
 require 'faraday-http-cache'
 require 'typhoeus'
 require 'typhoeus/adapters/faraday'
-
 module WpApiClient
   class Connection
 
     attr_accessor :headers
     attr_reader :concurrent
+    attr_accessor :conn
+    attr_accessor :configuration
 
     def initialize(configuration)
       @configuration = configuration
@@ -45,6 +46,10 @@ module WpApiClient
     # translate requests into wp-api urls
     def get(url, params = {})
       @conn.get url, parse_params(params)
+    end
+    
+    def post(url, params = {})
+      @conn.post url, parse_params(params)
     end
 
     # requests come in as url/params pairs
