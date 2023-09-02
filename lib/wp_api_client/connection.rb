@@ -1,7 +1,6 @@
 require 'faraday'
 require 'faraday-http-cache'
-require 'typhoeus'
-require 'typhoeus/adapters/faraday'
+
 module WpApiClient
   class Connection
 
@@ -34,7 +33,7 @@ module WpApiClient
 
         faraday.use Faraday::Response::RaiseError
         faraday.response :json, :content_type => /\bjson$/
-        faraday.adapter  :typhoeus
+        faraday.adapter  Faraday.default_adapter
       end
     end
 
