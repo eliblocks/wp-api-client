@@ -19,7 +19,6 @@ module WpApiClient
   class Configuration
     attr_accessor :endpoint
     attr_accessor :embed
-    attr_accessor :oauth_credentials
     attr_accessor :debug
     attr_accessor :cache
     attr_accessor :basic_auth

@@ -7,5 +7,4 @@
 /pkg/
 /spec/reports/
 /tmp/
-/config/oauth.json
 *.gem

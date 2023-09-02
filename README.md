@@ -10,7 +10,7 @@ I don't work with WordPress any more. If you would like to take over maintenance
 
 This unambitious client provides read-only access for WP-API v2.
 
-It supports authentication via OAuth or Basic Auth.
+It supports authentication via Basic Auth.
 
 It can make concurrent requests.
 
@@ -182,18 +182,6 @@ WP-API returns an array even if there's only one result, so you need to be caref
 term = @api.get('custom_taxonomy', slug: 'term_one').first
 taxonomy_name = term.taxonomy.name
 posts = term.posts
-```
-
-#### OAuth
-
-Provide a symbol-keyed hash of `token`, `token_secret`, `consumer_key` and `consumer_secret` on configuration.
-
-```ruby
-WpApiClient.configure do |api_client|
-  api_client.oauth_credentials = oauth_credentials_hash
-end
-
-client = WpApiClient.get_client
 ```
 
 #### Basic Auth

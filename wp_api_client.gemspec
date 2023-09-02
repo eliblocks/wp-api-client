@@ -27,9 +27,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "faraday", "~> 2"
-  spec.add_dependency "faraday_middleware"
   spec.add_dependency "faraday-http-cache"
-  spec.add_dependency "simple_oauth"
   spec.add_dependency "typhoeus"
 
   spec.add_development_dependency "bundler", "~> 2"

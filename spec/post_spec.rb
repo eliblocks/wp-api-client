@@ -39,11 +39,6 @@ RSpec.describe WpApiClient::Entities::Post do
 
     before :all do
       WpApiClient.reset!
-      oauth_credentials = get_test_oauth_credentials
-
-      WpApiClient.configure do |api_client|
-        api_client.oauth_credentials = oauth_credentials
-      end
       @api = WpApiClient.get_client
     end
 

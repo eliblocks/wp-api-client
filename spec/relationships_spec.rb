@@ -42,10 +42,6 @@ RSpec.describe WpApiClient::Relationship do
     before :each do
       # we need oAuth for this
       WpApiClient.reset!
-      oauth_credentials = get_test_oauth_credentials
-      WpApiClient.configure do |api_client|
-        api_client.oauth_credentials = oauth_credentials
-      end
       @api = WpApiClient.get_client
       post = @api.get("posts/1")
       @relationship = WpApiClient::Relationship.new(post.resource, "https://api.w.org/meta")
